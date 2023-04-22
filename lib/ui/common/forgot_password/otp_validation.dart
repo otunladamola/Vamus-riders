@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
+import 'package:vamuz_riders/ui/common/forgot_password/new_password.dart';
+import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
-import 'package:vamuz_riders/ui/screens/sign_in.dart';
 
-class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+class OtpValidation extends StatefulWidget {
+  const OtpValidation({super.key});
 
   @override
-  State<OtpPage> createState() => _OtpPageState();
+  State<OtpValidation> createState() => _OtpValidationState();
 }
 
-class _OtpPageState extends State<OtpPage> {
+class _OtpValidationState extends State<OtpValidation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +28,12 @@ class _OtpPageState extends State<OtpPage> {
             children: [
               Ui.boxHeight(70),
               const Text(
-                "Input OTP?",
+                "Forgot Password?",
                 style: heading4,
               ),
-              Ui.boxHeight(17),
+              Ui.boxHeight(11),
               const Text(
-                "Please enter the OTP code sent to your phone number",
+                "Enter your email for the verification process, and we will send 4 digits code to your email for the verification.",
                 style: overline,
               ),
               Ui.boxHeight(37),
@@ -62,24 +65,8 @@ class _OtpPageState extends State<OtpPage> {
               CustomButton(
                   text: "Proceed",
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (route) => const SignIn()));
+                    Get.toNamed(RouteConstant.NEW_PASSWORD);
                   }),
-              Ui.boxHeight(40),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    text: "No OTP ? ",
-                    style: hintStyle.copyWith(color: CustomColors.textColor),
-                    children: [
-                      TextSpan(
-                        text: " Click here",
-                        style: hintStyle.copyWith(color: CustomColors.primary),
-                      ),
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),

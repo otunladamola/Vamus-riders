@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
+import 'package:vamuz_riders/ui/common/sign_in.dart';
+import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
-import 'package:vamuz_riders/ui/screens/new_password.dart';
 
-class OtpValidation extends StatefulWidget {
-  const OtpValidation({super.key});
+class OtpPage extends StatefulWidget {
+  const OtpPage({super.key});
 
   @override
-  State<OtpValidation> createState() => _OtpValidationState();
+  State<OtpPage> createState() => _OtpPageState();
 }
 
-class _OtpValidationState extends State<OtpValidation> {
+class _OtpPageState extends State<OtpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +28,12 @@ class _OtpValidationState extends State<OtpValidation> {
             children: [
               Ui.boxHeight(70),
               const Text(
-                "Forgot Password?",
+                "Input OTP?",
                 style: heading4,
               ),
-              Ui.boxHeight(11),
+              Ui.boxHeight(17),
               const Text(
-                "Enter your email for the verification process, and we will send 4 digits code to your email for the verification.",
+                "Please enter the OTP code sent to your phone number",
                 style: overline,
               ),
               Ui.boxHeight(37),
@@ -62,11 +65,24 @@ class _OtpValidationState extends State<OtpValidation> {
               CustomButton(
                   text: "Proceed",
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (route) => const NewPassword()));
+                    Get.toNamed(RouteConstant.LOGIN,
+                        arguments: {'isRider': false});
                   }),
+              Ui.boxHeight(40),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: "No OTP ? ",
+                    style: hintStyle.copyWith(color: CustomColors.textColor),
+                    children: [
+                      TextSpan(
+                        text: " Click here",
+                        style: hintStyle.copyWith(color: CustomColors.primary),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/styles.dart';
-import 'package:vamuz_riders/ui/screens/otp_page.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
-import 'package:vamuz_riders/ui/widgets/custom_textfield.dart';
+import 'package:vamuz_riders/ui/fleet_owner/authentication/otp_page.dart';
+import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
+import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class FleetOwnerSignUp extends StatefulWidget {
+  const FleetOwnerSignUp({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<FleetOwnerSignUp> createState() => _FleetOwnerSignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
   bool checkBoxValue = false;
   var value = '0';
   @override
@@ -24,6 +27,7 @@ class _SignUpState extends State<SignUp> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
+          physics: ClampingScrollPhysics(),
           children: [
             Ui.boxHeight(44),
             Align(
@@ -81,14 +85,30 @@ class _SignUpState extends State<SignUp> {
             CustomButton(
                 text: 'Sign up',
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OtpPage(),
-                      ));
+                  Get.toNamed(RouteConstant.OTP_PAGE);
                 }),
             Ui.boxHeight(12),
             transparentButton(),
+            Ui.boxHeight(16),
+            Center(
+              child: InkWell(
+                onTap: () {},
+                child: RichText(
+                  text: TextSpan(
+                    text: "Are you a Rider? ",
+                    style: regular.copyWith(color: CustomColors.primary),
+                    children: [
+                      TextSpan(
+                        text: "Sign up here",
+                        style: regular.copyWith(
+                          color: CustomColors.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             Ui.boxHeight(90),
           ],
         ),
@@ -99,12 +119,7 @@ class _SignUpState extends State<SignUp> {
   Widget transparentButton() {
     return InkWell(
       onTap: () {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (route) => const SignIn(
-        //               isSeller: false,
-        //             )));
+        Get.toNamed(RouteConstant.LOGIN, arguments: {'isRider': false});
       },
       child: Container(
         height: 40,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
-import 'package:vamuz_riders/ui/widgets/custom_textfield.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
+import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 

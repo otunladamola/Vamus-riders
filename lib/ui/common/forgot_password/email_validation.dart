@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vamuz_riders/ui/screens/otp_validation.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
-import 'package:vamuz_riders/ui/widgets/custom_textfield.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
+import 'package:vamuz_riders/ui/common/forgot_password/otp_validation.dart';
+import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
+import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
@@ -49,10 +52,7 @@ class _EmailValidationState extends State<EmailValidation> {
                     CustomButton(
                         text: "Proceed",
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (route) => const OtpValidation()));
+                          Get.toNamed(RouteConstant.OTP_VALIDATION);
                         }),
                   ],
                 ),

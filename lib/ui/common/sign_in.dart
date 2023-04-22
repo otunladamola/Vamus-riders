@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/ui/widgets/custom_button.dart';
-import 'package:vamuz_riders/ui/widgets/custom_textfield.dart';
+import 'package:vamuz_riders/ui/common/forgot_password/email_validation.dart';
+import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
+import 'package:vamuz_riders/ui/utils/custom_button.dart';
+import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
-import 'package:vamuz_riders/ui/screens/email_validation.dart';
 
 class SignIn extends StatefulWidget {
-
-  const SignIn({super.key, });
+  final bool isRider;
+  const SignIn({super.key, required this.isRider});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -49,24 +52,11 @@ class _SignInState extends State<SignIn> {
               Ui.boxHeight(30),
               const CustomPasswordTextField(label: "Password"),
               Ui.boxHeight(58),
-              CustomButton(
-                  text: "Sign In",
-                  onTap: () {
-                
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (route) => widget.isSeller
-                    //             ? const SellerHomeOptions()
-                    //             : const BuyerHomeOptions()));
-                  }),
+              CustomButton(text: "Sign In", onTap: () {}),
               Ui.boxHeight(33),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (route) => const EmailValidation()));
+                  Get.toNamed(RouteConstant.EMAIL_VALIDATION);
                 },
                 child: Center(
                   child: Text(
