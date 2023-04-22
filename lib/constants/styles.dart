@@ -6,6 +6,11 @@ const regular = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w500,
 );
+const regular2 = TextStyle(
+  fontFamily: 'Inter',
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+);
 const hintStyle = TextStyle(
     fontFamily: 'Inter',
     fontSize: 14,

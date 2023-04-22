@@ -8,9 +8,8 @@ class RouteConstant {
   static const String OTP_VALIDATION = '/otp_validation';
   static const String OTP_PAGE = '/otp_page';
   static const String NEW_PASSWORD = '/new_password';
-  static const String BUYER_SIGN_UP = '/buyer_signup';
-  static const String SELLER_SIGN_UP = '/seller_signup';
-  static const String SELLER_OPTIONS = '/seller_options';
+  static const String RIDER_FORM = '/rider_form';
+  static const String DRIVER_FORM = '/driver_form';
   static const String BUYER_OPTIONS = '/buyer_options';
   static const String DELIVERY_SCREEN = '/delivery_screen';
   static const String PICK_CATEGORY = '/pick_category';
@@ -23,7 +22,7 @@ class RouteConstant {
   static const String PASSWORD_SECURITY = '/password_security';
   static const String MANAGE_ORDER = '/manage_order';
   static const String ORDER_DETAILS = '/order_details';
-  static const String SALES_ANALYTICS = '/sales_analytics';
+  static const String HELP = '/help';
   static const String FAQ = '/faq';
   static const String CONTACT_US = '/contact_us';
   static const String ABOUT_US = '/about_us';
