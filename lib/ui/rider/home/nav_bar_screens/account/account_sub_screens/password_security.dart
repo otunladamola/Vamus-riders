@@ -30,6 +30,7 @@ class _PasswordSecurityState extends State<PasswordSecurity> {
               size: 18,
             ),
           ),
+          titleSpacing: 0,
           title: Text(
             "Password and security ",
             style: heading4.copyWith(color: Colors.black),

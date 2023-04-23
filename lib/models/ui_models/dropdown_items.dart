@@ -28,3 +28,7 @@ List<DropdownMenuItem<String>> vehicleYearMenuItems = const [
   DropdownMenuItem(value: "0", child: Text("2007")),
   DropdownMenuItem(value: "1", child: Text("2010")),
 ];
+List<DropdownMenuItem<String>> banksMenuItems = const [
+  DropdownMenuItem(value: "0", child: Text("First Bank")),
+  DropdownMenuItem(value: "1", child: Text("Guarantee Trust Bank")),
+];

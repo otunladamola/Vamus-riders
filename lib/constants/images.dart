@@ -12,3 +12,6 @@ const String bell = 'assets/images/bell.png';
 const String carBack = 'assets/images/car_back.png';
 const String soar = 'assets/images/soar.png';
 const String marketplace = 'assets/images/marketplace.png';
+const String addPayment = 'assets/images/add_payment.png';
+const String withdraw = 'assets/images/withdraw.png';
+const String editAccount = 'assets/images/edit_account.png';

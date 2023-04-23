@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
@@ -6,7 +7,7 @@ import 'package:vamuz_riders/ui/utils/navigation/page_route.dart';
 import 'ui/fleet_owner/authentication/sign_up_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

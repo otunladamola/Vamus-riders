@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.7.0
   pin_code_fields: ^7.4.0
+  flutter_riverpod: ^2.3.3
   event_bus: ^2.0.0
   get:
 
