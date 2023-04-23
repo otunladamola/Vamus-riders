@@ -1,20 +1,21 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
+import 'package:vamuz_riders/state/providers/delivery_sheets_provider.dart';
 
-class DeliveryRequestBottomSheet extends StatefulWidget {
+class DeliveryRequestBottomSheet extends ConsumerStatefulWidget {
   const DeliveryRequestBottomSheet({super.key});
 
   @override
-  State<DeliveryRequestBottomSheet> createState() =>
+  ConsumerState<DeliveryRequestBottomSheet> createState() =>
       _DeliveryRequestBottomSheetState();
 }
 
 class _DeliveryRequestBottomSheetState
-    extends State<DeliveryRequestBottomSheet> {
+    extends ConsumerState<DeliveryRequestBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -73,7 +74,9 @@ class _DeliveryRequestBottomSheetState
 
   Widget declineButton() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        ref.read(DeliverySheetProvider.state).declineRequest();
+      },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
         height: 40,
@@ -92,7 +95,9 @@ class _DeliveryRequestBottomSheetState
 
   Widget acceptButton() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        ref.read(DeliverySheetProvider.state).acceptRequest();
+      },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
         height: 40,

@@ -30,6 +30,7 @@ class _UpdateAccountInfoState extends State<UpdateAccountInfo> {
               size: 18,
             ),
           ),
+          titleSpacing: 0,
           title: Text(
             "Update Account info",
             style: heading4.copyWith(color: Colors.black),

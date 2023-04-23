@@ -5,7 +5,7 @@ import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
-import 'package:vamuz_riders/ui/utils/dialog.dart';
+import 'package:vamuz_riders/ui/utils/dialogs.dart';
 
 class Account extends StatefulWidget {
   const Account({super.key});
@@ -68,15 +68,23 @@ class _AccountState extends State<Account> {
           Ui.boxHeight(28),
           accountItem(
               text: "Add Payment method ",
-              leading: const Icon(Icons.payment_outlined),
+              leading: Image.asset(
+                addPayment,
+                height: 20,
+                width: 20,
+              ),
               onTap: () {
                 Get.toNamed(RouteConstant.ADD_PAYMENT);
               }),
           accountItem(
               text: "Withdraw",
-              leading: const Icon(Icons.card_giftcard_outlined),
+              leading: Image.asset(
+                withdraw,
+                height: 20,
+                width: 20,
+              ),
               onTap: () {
-                Get.toNamed(RouteConstant.ADD_PAYMENT);
+                Get.toNamed(RouteConstant.WITHDRAW);
               }),
           accountItem(
               onTap: () {
@@ -85,11 +93,16 @@ class _AccountState extends State<Account> {
               text: "Password and Security",
               leading: const Icon(Icons.security)),
           accountItem(
-              onTap: () {
-                Get.toNamed(RouteConstant.UPDATE_ACCOUNT_INFO);
-              },
-              text: "Edit/ Update Info",
-              leading: const Icon(Icons.person_3_outlined)),
+            onTap: () {
+              Get.toNamed(RouteConstant.UPDATE_ACCOUNT_INFO);
+            },
+            text: "Edit/ Update Info",
+            leading: Image.asset(
+              editAccount,
+              height: 20,
+              width: 20,
+            ),
+          ),
           accountItem(
               onTap: () {
                 Get.toNamed(RouteConstant.HELP);

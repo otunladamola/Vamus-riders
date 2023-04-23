@@ -30,6 +30,7 @@ class _HelpState extends State<Help> {
               size: 18,
             ),
           ),
+          titleSpacing: 0,
           title: Text(
             "Help",
             style: heading4.copyWith(color: Colors.black),

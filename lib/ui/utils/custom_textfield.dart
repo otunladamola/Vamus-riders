@@ -13,21 +13,32 @@ class CustomTextField extends StatelessWidget {
   final int? lines;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final String? addText;
   const CustomTextField(
       {super.key,
       required this.label,
       this.controller,
       this.validator,
-      this.lines});
+      this.lines,
+      this.addText});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: regular,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: regular,
+            ),
+            Text(
+              addText ?? "",
+              style: regular2.copyWith(fontSize: 11),
+            ),
+          ],
         ),
         Ui.boxHeight(5),
         TextFormField(
