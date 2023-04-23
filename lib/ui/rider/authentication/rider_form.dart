@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/images.dart';
+import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/models/ui_models/dropdown_items.dart';
-import 'package:vamuz_riders/ui/rider/authentication/sign_up_screen.dart';
+import 'package:vamuz_riders/ui/fleet_owner/authentication/sign_up_screen.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/ui/utils/custom_dropdown.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
+import 'package:vamuz_riders/ui/utils/upload_image_container.dart';
 
-class FleetOwnerSignUp extends StatefulWidget {
-  const FleetOwnerSignUp({super.key});
+class RiderForm extends StatefulWidget {
+  const RiderForm({super.key});
 
   @override
-  State<FleetOwnerSignUp> createState() => _FleetOwnerSignUpState();
+  State<RiderForm> createState() => _RiderFormState();
 }
 
-class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
+class _RiderFormState extends State<RiderForm> {
   bool checkBoxValue = false;
-  String? selectedState;
-  String? selectedCity;
-  String? selectedFleetType;
+  String? selectedBikeModel;
+  String? selectedBikeYear;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,48 +41,50 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
                 width: 52,
               ),
             ),
-            Ui.boxHeight(6),
-            const Text(
-              "Welcome to Vamus",
-              style: boldHeading5,
+            Ui.boxHeight(10),
+            Row(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 16,
+                  ),
+                ),
+                Ui.boxWidth(10),
+                const Text(
+                  "Rider Form",
+                  style: boldHeading5,
+                ),
+              ],
             ),
-            Ui.boxHeight(6),
-            const Text(
-              "Welcome to our community! We're excited to have you on board. Please fill out the form below to sign up and start enjoying all the benefits of our platform.",
-              style: overline,
-            ),
-            Ui.boxHeight(6.5),
-            const CustomTextField(label: 'Full Name'),
-            Ui.boxHeight(17),
-            const CustomTextField(label: 'Email address'),
-            Ui.boxHeight(17),
-            customDropDown(
-                label: "State",
-                hintText: "Select",
-                selectedValue: selectedState,
-                dropdownItems: stateMenuItems,
-                onChanged: (val) {}),
-            Ui.boxHeight(17),
-            customDropDown(
-                label: "City",
-                hintText: "Select",
-                selectedValue: selectedCity,
-                dropdownItems: cityMenuItems,
-                onChanged: (val) {}),
-            Ui.boxHeight(17),
-            const CustomPasswordTextField(label: 'Create Password'),
-            Ui.boxHeight(17),
-            const CustomPasswordTextField(label: 'Confirm Password'),
-            Ui.boxHeight(17),
-            customDropDown(
-                label: "Fleet Type",
-                hintText: "Select",
-                selectedValue: selectedCity,
-                dropdownItems: fleetTypeMenuItems,
-                onChanged: (val) {}),
-            Ui.boxHeight(17),
-            const CustomTextField(label: 'Fleet Capacity'),
             Ui.boxHeight(30),
+            customDropDown(
+                label: "Bike Model",
+                hintText: "Select",
+                selectedValue: selectedBikeModel,
+                dropdownItems: vehicleModelMenuItems,
+                onChanged: (val) {}),
+            Ui.boxHeight(17),
+            customDropDown(
+                label: "Bike Year",
+                hintText: "Select",
+                selectedValue: selectedBikeYear,
+                dropdownItems: vehicleYearMenuItems,
+                onChanged: (val) {}),
+            Ui.boxHeight(17),
+            const CustomTextField(label: 'Bike License Number'),
+            Ui.boxHeight(17),
+            uploadImageContainer(
+              "Upload the a picture of your Bike (Front View)",
+            ),
+            Ui.boxHeight(32),
+            uploadImageContainer(
+              "Upload the a picture of your Bike (Back View)",
+            ),
+            Ui.boxHeight(38),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -105,54 +107,23 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
                 onTap: () {
                   Get.toNamed(RouteConstant.OTP_PAGE);
                 }),
-            Ui.boxHeight(12),
-            transparentButton(),
-            Ui.boxHeight(16),
+            Ui.boxHeight(18),
             Center(
               child: InkWell(
-                onTap: () {
-                  Get.off(() => RiderSignUp());
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: "Are you a Rider? ",
-                    style: regular.copyWith(color: CustomColors.primary),
-                    children: [
-                      TextSpan(
-                        text: "Sign up here",
-                        style: regular.copyWith(
-                          color: CustomColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                  onTap: () {
+                    Get.off(() => FleetOwnerSignUp());
+                  },
+                  child: Text(
+                      "Are you a Fleet owner? Do you have more than\none car/bike? Sign up here",
+                      textAlign: TextAlign.center,
+                      style: regular.copyWith(
+                        color: CustomColors.primary,
+                      ))),
             ),
-            Ui.boxHeight(90),
+            Ui.boxHeight(33),
           ],
         ),
       )),
-    );
-  }
-
-  Widget transparentButton() {
-    return InkWell(
-      onTap: () {
-        Get.toNamed(RouteConstant.LOGIN, arguments: {'isRider': false});
-      },
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
-            border: Border.all(color: CustomColors.primary)),
-        child: Center(
-          child: Text(
-            "Already have an account? Sign in",
-            style: regular.copyWith(color: CustomColors.primary),
-          ),
-        ),
-      ),
     );
   }
 

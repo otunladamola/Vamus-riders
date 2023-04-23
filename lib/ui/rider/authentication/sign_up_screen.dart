@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/models/ui_models/dropdown_items.dart';
-import 'package:vamuz_riders/ui/rider/authentication/sign_up_screen.dart';
+import 'package:vamuz_riders/ui/fleet_owner/authentication/sign_up_screen.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/ui/utils/custom_dropdown.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
+import 'package:vamuz_riders/ui/utils/upload_image_container.dart';
 
-class FleetOwnerSignUp extends StatefulWidget {
-  const FleetOwnerSignUp({super.key});
+class RiderSignUp extends StatefulWidget {
+  const RiderSignUp({super.key});
 
   @override
-  State<FleetOwnerSignUp> createState() => _FleetOwnerSignUpState();
+  State<RiderSignUp> createState() => _RiderSignUpState();
 }
 
-class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
+class _RiderSignUpState extends State<RiderSignUp> {
   bool checkBoxValue = false;
   String? selectedState;
   String? selectedCity;
@@ -70,66 +73,48 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
                 dropdownItems: cityMenuItems,
                 onChanged: (val) {}),
             Ui.boxHeight(17),
+            const CustomPasswordTextField(label: 'Phone number'),
+            Ui.boxHeight(17),
             const CustomPasswordTextField(label: 'Create Password'),
             Ui.boxHeight(17),
             const CustomPasswordTextField(label: 'Confirm Password'),
             Ui.boxHeight(17),
             customDropDown(
-                label: "Fleet Type",
-                hintText: "Select",
-                selectedValue: selectedCity,
-                dropdownItems: fleetTypeMenuItems,
-                onChanged: (val) {}),
+                label: "Are you a Rider or a Driver",
+                hintText: "Fleet Type",
+                selectedValue: selectedFleetType,
+                dropdownItems: RiderDriverMenuItems,
+                onChanged: (val) {
+                  setState(() {
+                    selectedFleetType = val;
+                  });
+                }),
             Ui.boxHeight(17),
-            const CustomTextField(label: 'Fleet Capacity'),
-            Ui.boxHeight(30),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                checkBox(),
-                Ui.boxWidth(6),
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      text:
-                          "When signing up for our service, we kindly ask that you read and accept our terms and conditions. By clicking \"I agree,\" you are acknowledging that you have reviewed and agree to our policies regarding your use of our platform",
-                      style: overline.copyWith(color: CustomColors.textColor),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Ui.boxHeight(12),
+            uploadImageContainer("Upload a Clear Photo of Yourself"),
+            Ui.boxHeight(46),
             CustomButton(
-                text: 'Sign up',
+                text: 'Next',
                 onTap: () {
-                  Get.toNamed(RouteConstant.OTP_PAGE);
+                  selectedFleetType == "0"
+                      ? Get.toNamed(RouteConstant.RIDER_FORM)
+                      : Get.toNamed(RouteConstant.DRIVER_FORM);
                 }),
             Ui.boxHeight(12),
             transparentButton(),
             Ui.boxHeight(16),
             Center(
               child: InkWell(
-                onTap: () {
-                  Get.off(() => RiderSignUp());
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: "Are you a Rider? ",
-                    style: regular.copyWith(color: CustomColors.primary),
-                    children: [
-                      TextSpan(
-                        text: "Sign up here",
-                        style: regular.copyWith(
-                          color: CustomColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                  onTap: () {
+                    Get.off(() => FleetOwnerSignUp());
+                  },
+                  child: Text(
+                      "Are you a Fleet owner? Do you have more than\none car/bike? Sign up here",
+                      textAlign: TextAlign.center,
+                      style: regular.copyWith(
+                        color: CustomColors.primary,
+                      ))),
             ),
-            Ui.boxHeight(90),
+            Ui.boxHeight(33),
           ],
         ),
       )),
@@ -139,7 +124,7 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
   Widget transparentButton() {
     return InkWell(
       onTap: () {
-        Get.toNamed(RouteConstant.LOGIN, arguments: {'isRider': false});
+        Get.toNamed(RouteConstant.LOGIN, arguments: {'isRider': true});
       },
       child: Container(
         height: 40,
@@ -154,30 +139,5 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
         ),
       ),
     );
-  }
-
-  Widget checkBox() {
-    return InkWell(
-        onTap: () {
-          setState(() {
-            checkBoxValue = !checkBoxValue;
-          });
-        },
-        child: Container(
-          height: 24,
-          width: 24,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: CustomColors.grey75)),
-          child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: checkBoxValue
-                  ? const Icon(
-                      Icons.check,
-                      size: 18.0,
-                      color: CustomColors.textColor,
-                    )
-                  : Container()),
-        ));
   }
 }

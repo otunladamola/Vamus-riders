@@ -3,6 +3,7 @@ import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/email_validation.dart';
+import 'package:vamuz_riders/ui/rider/home/home_page.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
@@ -38,9 +39,23 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
               Ui.boxHeight(6),
-              const Text(
-                "Welcome Back",
-                style: boldHeading5,
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      size: 16,
+                    ),
+                  ),
+                  Ui.boxWidth(10),
+                  const Text(
+                    "Welcome Back",
+                    style: boldHeading5,
+                  ),
+                ],
               ),
               Ui.boxHeight(6),
               Text(
@@ -52,7 +67,11 @@ class _SignInState extends State<SignIn> {
               Ui.boxHeight(30),
               const CustomPasswordTextField(label: "Password"),
               Ui.boxHeight(58),
-              CustomButton(text: "Sign In", onTap: () {}),
+              CustomButton(
+                  text: "Sign In",
+                  onTap: () {
+                    Get.offAll(() => HomePage());
+                  }),
               Ui.boxHeight(33),
               InkWell(
                 onTap: () {

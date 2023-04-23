@@ -2,8 +2,19 @@ import 'package:get/get.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/email_validation.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/new_password.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/otp_validation.dart';
+import 'package:vamuz_riders/ui/common/otp_page.dart';
 import 'package:vamuz_riders/ui/common/sign_in.dart';
-import 'package:vamuz_riders/ui/fleet_owner/authentication/otp_page.dart';
+import 'package:vamuz_riders/ui/rider/authentication/driver_form.dart';
+import 'package:vamuz_riders/ui/rider/authentication/rider_form.dart';
+import 'package:vamuz_riders/ui/rider/authentication/sign_up_screen.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/add_payment.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/about.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/contact_us.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/faq.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/help.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/password_security.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/update_account_info.dart';
+import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/delivery/delivery_summary.dart';
 import 'package:vamuz_riders/ui/splash_screen.dart';
 
 import '../constant/route_constant.dart';
@@ -49,10 +60,14 @@ class AppPages {
             name: RouteConstant.NEW_PASSWORD,
             page: () => const NewPassword(),
             transition: Transition.rightToLeft),
-        //     GetPage(
-        //         name: RouteConstant.BUYER_SIGN_UP,
-        //         page: () => const BuyerSignUp(),
-        //         transition: Transition.rightToLeft),
+        GetPage(
+            name: RouteConstant.RIDER_FORM,
+            page: () => const RiderForm(),
+            transition: Transition.rightToLeft),
+        GetPage(
+            name: RouteConstant.DRIVER_FORM,
+            page: () => const DriverForm(),
+            transition: Transition.rightToLeft),
         //     GetPage(
         //         name: RouteConstant.SELLER_SIGN_UP,
         //         page: () => const SellerSignUp(),
@@ -113,16 +128,16 @@ class AppPages {
         //       page: () => const SalesAnalytics(),
         //       transition: Transition.rightToLeft,
         //     ),
-        //     GetPage(
-        //       name: RouteConstant.UPDATE_ACCOUNT_INFO,
-        //       page: () => const UpdateAccountInfo(),
-        //       transition: Transition.rightToLeft,
-        //     ),
-        //     GetPage(
-        //       name: RouteConstant.PASSWORD_SECURITY,
-        //       page: () => const PasswordSecurity(),
-        //       transition: Transition.rightToLeft,
-        //     ),
+        GetPage(
+          name: RouteConstant.UPDATE_ACCOUNT_INFO,
+          page: () => const UpdateAccountInfo(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.PASSWORD_SECURITY,
+          page: () => const PasswordSecurity(),
+          transition: Transition.rightToLeft,
+        ),
         //     GetPage(
         //       name: RouteConstant.MANAGE_ORDER,
         //       page: () => const ManageOrder(),
@@ -133,41 +148,41 @@ class AppPages {
         //       page: () => const OrderDetails(),
         //       transition: Transition.rightToLeft,
         //     ),
-        //     GetPage(
-        //       name: RouteConstant.FAQ,
-        //       page: () => const FAQ(),
-        //       transition: Transition.rightToLeft,
-        //     ),
-        //     GetPage(
-        //       name: RouteConstant.CONTACT_US,
-        //       page: () => const ContactUs(),
-        //       transition: Transition.rightToLeft,
-        //     ),
-        //     GetPage(
-        //       name: RouteConstant.ABOUT_US,
-        //       page: () => const AboutUs(),
-        //       transition: Transition.rightToLeft,
-        //     ),
+        GetPage(
+          name: RouteConstant.FAQ,
+          page: () => const FAQ(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.CONTACT_US,
+          page: () => const ContactUs(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.ABOUT_US,
+          page: () => const AboutUs(),
+          transition: Transition.rightToLeft,
+        ),
         //     GetPage(
         //       name: RouteConstant.NOTIFICATIONS,
         //       page: () => const Notifications(),
         //       transition: Transition.rightToLeft,
         //     ),
-        //     GetPage(
-        //       name: RouteConstant.DELIVERY_SUMMARY,
-        //       page: () => const DeliverySummary(),
-        //       transition: Transition.rightToLeft,
-        //     ),
-        //     GetPage(
-        //       name: RouteConstant.FILTER_DETAILS,
-        //       page: () => const FilterDetails(),
-        //       transition: Transition.rightToLeft,
-        //     ),
-        //     GetPage(
-        //       name: RouteConstant.ADD_PAYMENT,
-        //       page: () => const AddPayment(),
-        //       transition: Transition.rightToLeft,
-        //     ),
+        GetPage(
+          name: RouteConstant.DELIVERY_SUMMARY,
+          page: () => const DeliverySummary(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.HELP,
+          page: () => const Help(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.ADD_PAYMENT,
+          page: () => const AddPayment(),
+          transition: Transition.rightToLeft,
+        ),
       ],
     ),
   ];
