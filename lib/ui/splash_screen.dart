@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route() {
-    Get.off(() => FleetOwnerSignUp());
+    Get.off(() => const FleetOwnerSignUp());
   }
 
   @override

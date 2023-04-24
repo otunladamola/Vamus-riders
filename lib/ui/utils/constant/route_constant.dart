@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class RouteConstant {
   static const String DASHBOARD = '/dashboard';
   static const String ONBOARDING = '/onboarding';

@@ -11,6 +11,7 @@ class DeliveryManagement extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(color: Colors.black),
           centerTitle: false,

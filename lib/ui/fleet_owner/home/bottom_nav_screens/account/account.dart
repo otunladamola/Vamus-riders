@@ -6,7 +6,6 @@ import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/dialogs.dart';
-import 'package:vamuz_riders/ui/fleet_owner/home/bottom_nav_screens/account/report_generation.dart';
 
 class FleetOwnerAccount extends StatefulWidget {
   const FleetOwnerAccount({super.key});
@@ -21,6 +20,7 @@ class _FleetOwnerAccountState extends State<FleetOwnerAccount> {
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(color: Colors.black),
           centerTitle: false,

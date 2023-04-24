@@ -38,7 +38,7 @@ class _DeliveryDetailsBottomSheetState
             Expanded(
               child: ListView(
                 padding: EdgeInsets.fromLTRB(16, 26.h, 15, 31.h),
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 children: [
                   locationContainer(),
                   Ui.boxHeight(20),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
@@ -18,6 +17,7 @@ class _FleetNotificationsState extends State<FleetNotifications> {
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(color: Colors.black),
           centerTitle: false,

@@ -36,12 +36,12 @@ class _PasswordSecurityState extends State<PasswordSecurity> {
             style: heading4.copyWith(color: Colors.black),
           )),
       body: ListView(
-        padding: EdgeInsets.fromLTRB(18, 10, 25, 0),
-        physics: ClampingScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(18, 10, 25, 0),
+        physics: const ClampingScrollPhysics(),
         children: [
-          CustomTextField(label: "New Password"),
+          const CustomTextField(label: "New Password"),
           Ui.boxHeight(24),
-          CustomTextField(label: "Confirm New Password"),
+          const CustomTextField(label: "Confirm New Password"),
           Ui.boxHeight(22),
           CustomButton(text: "Change Password", onTap: () {})
         ],

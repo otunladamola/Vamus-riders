@@ -30,7 +30,7 @@ class _RiderFormState extends State<RiderForm> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
             Ui.boxHeight(44),
             Align(
@@ -111,7 +111,7 @@ class _RiderFormState extends State<RiderForm> {
             Center(
               child: InkWell(
                   onTap: () {
-                    Get.off(() => FleetOwnerSignUp());
+                    Get.off(() => const FleetOwnerSignUp());
                   },
                   child: Text(
                       "Are you a Fleet owner? Do you have more than\none car/bike? Sign up here",

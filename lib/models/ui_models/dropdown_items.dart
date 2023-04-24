@@ -15,7 +15,7 @@ List<DropdownMenuItem<String>> fleetTypeMenuItems = const [
   DropdownMenuItem(value: "1", child: Text("Bus")),
 ];
 
-List<DropdownMenuItem<String>> RiderDriverMenuItems = const [
+List<DropdownMenuItem<String>> riderDriverMenuItems = const [
   DropdownMenuItem(value: "0", child: Text("Rider")),
   DropdownMenuItem(value: "1", child: Text("Driver")),
 ];

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/ui/common/sign_in.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/constants/styles.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';

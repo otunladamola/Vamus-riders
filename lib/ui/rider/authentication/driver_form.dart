@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/images.dart';
@@ -32,7 +30,7 @@ class _DriverFormState extends State<DriverForm> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
             Ui.boxHeight(44),
             Align(
@@ -113,7 +111,7 @@ class _DriverFormState extends State<DriverForm> {
             Center(
               child: InkWell(
                   onTap: () {
-                    Get.off(() => FleetOwnerSignUp());
+                    Get.off(() => const FleetOwnerSignUp());
                   },
                   child: Text(
                       "Are you a Fleet owner? Do you have more than\none car/bike? Sign up here",

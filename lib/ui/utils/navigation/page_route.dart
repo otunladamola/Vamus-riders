@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:get/get.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/email_validation.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/new_password.dart';
@@ -8,7 +10,6 @@ import 'package:vamuz_riders/ui/fleet_owner/home/bottom_nav_screens/account/repo
 import 'package:vamuz_riders/ui/fleet_owner/options.dart';
 import 'package:vamuz_riders/ui/rider/authentication/driver_form.dart';
 import 'package:vamuz_riders/ui/rider/authentication/rider_form.dart';
-import 'package:vamuz_riders/ui/rider/authentication/sign_up_screen.dart';
 import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/add_payment.dart';
 import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/about.dart';
 import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/account/account_sub_screens/help_screens/contact_us.dart';

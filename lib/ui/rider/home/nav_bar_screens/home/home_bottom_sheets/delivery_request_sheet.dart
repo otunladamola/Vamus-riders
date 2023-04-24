@@ -42,17 +42,17 @@ class _DeliveryRequestBottomSheetState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Off Ibeshe Rd., After Nichemtex, Box 217 \nIkorodu, Lagos",
                     style: regular2,
                   ),
                   Ui.boxHeight(2),
-                  Text(
+                  const Text(
                     "John Doe",
                     style: regular2,
                   ),
                   Ui.boxHeight(2),
-                  Text(
+                  const Text(
                     "08057022559",
                     style: regular2,
                   ),
@@ -78,7 +78,7 @@ class _DeliveryRequestBottomSheetState
         ref.read(DeliverySheetProvider.state).declineRequest();
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
         height: 40,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
@@ -99,7 +99,7 @@ class _DeliveryRequestBottomSheetState
         ref.read(DeliverySheetProvider.state).acceptRequest();
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 7.5),
         height: 40,
         decoration: BoxDecoration(
           color: CustomColors.primary,

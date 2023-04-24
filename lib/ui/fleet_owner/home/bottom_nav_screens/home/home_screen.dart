@@ -11,6 +11,7 @@ class OwnerHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(color: Colors.black),
@@ -32,19 +33,21 @@ class OwnerHomeScreen extends StatelessWidget {
                 ),
                 Ui.boxWidth(11),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       "Krista Schneider",
                       style: boldHeading5,
                     ),
+                    Ui.boxHeight(5),
                     Row(
                       children: [
                         Image.asset(
                           mapMarker,
                           width: 14,
-                          height: 20,
+                          height: 18,
                         ),
-                        Ui.boxWidth(11),
+                        Ui.boxWidth(8),
                         const Text(
                           "Ipaja, Lagos",
                           style: regular2,
@@ -59,16 +62,17 @@ class OwnerHomeScreen extends StatelessWidget {
           Ui.boxHeight(29.5),
           info(
             info: "Number of trips Completed",
-            num: "17",
+            amount: "17",
           ),
           Ui.boxHeight(12),
           const Divider(thickness: 1, color: CustomColors.grey100),
           Ui.boxHeight(16),
-          info(info: "Total Commission earned from trips", num: "₦25,000.00"),
+          info(
+              info: "Total Commission earned from trips", amount: "₦25,000.00"),
           Ui.boxHeight(12),
           const Divider(thickness: 1, color: CustomColors.grey100),
           Ui.boxHeight(16),
-          info(info: "Edit/ Update Info", num: ''),
+          info(info: "Edit/ Update Info", amount: ''),
           Ui.boxHeight(12),
           const Divider(thickness: 1, color: CustomColors.grey100),
         ],
@@ -76,7 +80,7 @@ class OwnerHomeScreen extends StatelessWidget {
     );
   }
 
-  Widget info({info, num}) {
+  Widget info({info, amount}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 17.0),
       child: Row(
@@ -87,7 +91,7 @@ class OwnerHomeScreen extends StatelessWidget {
             style: regular2,
           ),
           Text(
-            num,
+            amount,
             style: regular2,
           )
         ],

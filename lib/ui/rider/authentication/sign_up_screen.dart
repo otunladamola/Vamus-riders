@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
@@ -33,7 +31,7 @@ class _RiderSignUpState extends State<RiderSignUp> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
             Ui.boxHeight(44),
             Align(
@@ -83,7 +81,7 @@ class _RiderSignUpState extends State<RiderSignUp> {
                 label: "Are you a Rider or a Driver",
                 hintText: "Fleet Type",
                 selectedValue: selectedFleetType,
-                dropdownItems: RiderDriverMenuItems,
+                dropdownItems: riderDriverMenuItems,
                 onChanged: (val) {
                   setState(() {
                     selectedFleetType = val;
@@ -105,7 +103,7 @@ class _RiderSignUpState extends State<RiderSignUp> {
             Center(
               child: InkWell(
                   onTap: () {
-                    Get.off(() => FleetOwnerSignUp());
+                    Get.off(() => const FleetOwnerSignUp());
                   },
                   child: Text(
                       "Are you a Fleet owner? Do you have more than\none car/bike? Sign up here",

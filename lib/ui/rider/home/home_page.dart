@@ -10,15 +10,15 @@ import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/home/home_screen.dart
 import 'package:vamuz_riders/ui/rider/home/nav_bar_screens/notification/notification.dart';
 import 'package:vamuz_riders/ui/utils/event_bus.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class RiderHomePage extends StatefulWidget {
+  const RiderHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<RiderHomePage> createState() => _RiderHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  ValueNotifier<int> _currentIndex = ValueNotifier(0);
+class _RiderHomePageState extends State<RiderHomePage> {
+  ValueNotifier<int> currentIndex = ValueNotifier(0);
   late StreamSubscription switchBottomNavStreamSubscription;
   bool loading = true;
   Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _currentIndex.value = index;
+      currentIndex.value = index;
     });
   }
 
@@ -50,20 +50,20 @@ class _HomePageState extends State<HomePage> {
 
   onSwitchBottomNavEvent(SwitchBottomNavEvent event) async {
     if (mounted) {
-      _currentIndex.value = event.index;
+      currentIndex.value = event.index;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
-      valueListenable: _currentIndex,
+      valueListenable: currentIndex,
       builder: (_, currentIndex, __) => Scaffold(
-        body: IndexedStack(index: currentIndex, children: [
-          const HomeScreen(),
-          const MyDeliveries(),
-          const Notifications(),
-          const Account(),
+        body: IndexedStack(index: currentIndex, children: const [
+          HomeScreen(),
+          MyDeliveries(),
+          Notifications(),
+          Account(),
         ]),
         bottomNavigationBar: bottomNavigation(),
       ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           _onItemTapped(index);
         },
-        currentIndex: _currentIndex.value,
+        currentIndex: currentIndex.value,
         items: [
           const BottomNavigationBarItem(
             icon: Padding(

@@ -37,8 +37,8 @@ Widget locationContainer() {
           ),
         ),
         Stack(
-          children: [
-            const Divider(
+          children: const [
+            Divider(
               color: CustomColors.grey75,
               thickness: 1,
             ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
-import 'package:vamuz_riders/ui/common/forgot_password/otp_validation.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
@@ -53,7 +51,7 @@ class _EmailValidationState extends State<EmailValidation> {
                         text: "Proceed",
                         onTap: () {
                           Get.toNamed(RouteConstant.OTP_VALIDATION);
-                        }), 
+                        }),
                   ],
                 ),
               )

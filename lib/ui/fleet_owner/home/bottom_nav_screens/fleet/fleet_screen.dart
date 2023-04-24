@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
@@ -12,6 +13,7 @@ class FleetManagementScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black),
         centerTitle: false,
@@ -41,14 +43,15 @@ class FleetManagementScreen extends StatelessWidget {
                         border: Border.all(color: CustomColors.primary),
                         borderRadius: BorderRadius.circular(6)),
                     child: Padding(
-                      padding: const EdgeInsets.all(6.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 6),
                       child: Row(
                         children: [
                           const Icon(
                             Icons.add,
                             color: CustomColors.textColor,
                           ),
-                          Ui.boxWidth(13),
+                          Ui.boxWidth(8),
                           const Text('Add Vehicle', style: regular2),
                         ],
                       ),
@@ -74,7 +77,7 @@ class FleetManagementScreen extends StatelessWidget {
                     Row(
                       children: [
                         vehicleInfo(label: "Model", details: "Venza"),
-                        Ui.boxWidth(135),
+                        Ui.boxWidth(135.w),
                         vehicleInfo(label: "Model year", details: "2011")
                       ],
                     ),
@@ -82,7 +85,7 @@ class FleetManagementScreen extends StatelessWidget {
                     Row(
                       children: [
                         vehicleInfo(label: "Colour", details: "Brown"),
-                        Ui.boxWidth(135),
+                        Ui.boxWidth(135.w),
                         vehicleInfo(label: "VIN Number", details: "Valid")
                       ],
                     ),
@@ -91,12 +94,15 @@ class FleetManagementScreen extends StatelessWidget {
                     vehicleInfoItem(
                         leading: Image.asset(
                           editAccount,
-                          height: 17,
-                          width: 20,
+                          height: 16,
+                          width: 19,
                         ),
                         text: 'Edit/ Update Vehicle Info'),
                     vehicleInfoItem(
-                        leading: Icon(Icons.delete),
+                        leading: const Icon(
+                          Icons.delete,
+                          size: 19,
+                        ),
                         text: 'Delete Vehicle Info')
                   ],
                 ),
@@ -129,17 +135,12 @@ class FleetManagementScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(11, 29, 18, 0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    leading,
-                    Ui.boxWidth(20),
-                    Text(
-                      text,
-                      style: hintStyle.copyWith(color: Colors.black),
-                    ),
-                  ],
+                leading,
+                Ui.boxWidth(20),
+                Text(
+                  text,
+                  style: hintStyle.copyWith(color: Colors.black),
                 ),
               ],
             ),

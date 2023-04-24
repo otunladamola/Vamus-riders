@@ -30,7 +30,7 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
             Ui.boxHeight(44),
             Align(
@@ -111,7 +111,7 @@ class _FleetOwnerSignUpState extends State<FleetOwnerSignUp> {
             Center(
               child: InkWell(
                 onTap: () {
-                  Get.off(() => RiderSignUp());
+                  Get.off(() => const RiderSignUp());
                 },
                 child: RichText(
                   text: TextSpan(

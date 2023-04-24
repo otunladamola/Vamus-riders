@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
-import 'package:vamuz_riders/ui/common/forgot_password/email_validation.dart';
-import 'package:vamuz_riders/ui/rider/home/home_page.dart';
 import 'package:vamuz_riders/ui/utils/constant/route_constant.dart';
 import 'package:vamuz_riders/ui/utils/custom_button.dart';
 import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
-import 'package:vamuz_riders/ui/fleet_owner/options.dart';
 
 class SignIn extends StatefulWidget {
   final bool isRider;

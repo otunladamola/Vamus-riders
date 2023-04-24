@@ -13,14 +13,15 @@ import 'package:vamuz_riders/ui/fleet_owner/home/bottom_nav_screens/notification
 import 'package:vamuz_riders/ui/utils/event_bus.dart';
 
 class FleetOwnerHomePage extends StatefulWidget {
-  const FleetOwnerHomePage({Key? key}) : super(key: key);
+  final int? index;
+  const FleetOwnerHomePage({Key? key, this.index}) : super(key: key);
 
   @override
   State<FleetOwnerHomePage> createState() => _FleetOwnerHomePageState();
 }
 
 class _FleetOwnerHomePageState extends State<FleetOwnerHomePage> {
-  ValueNotifier<int> _currentIndex = ValueNotifier(0);
+  ValueNotifier<int> currentIndex = ValueNotifier(0);
   late StreamSubscription switchBottomNavStreamSubscription;
   bool loading = true;
   Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
@@ -39,34 +40,37 @@ class _FleetOwnerHomePageState extends State<FleetOwnerHomePage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _currentIndex.value = index;
+      currentIndex.value = index;
     });
   }
 
   @override
   void initState() {
     super.initState();
+    if (widget.index != null) {
+      currentIndex.value = widget.index!;
+    }
     switchBottomNavStreamSubscription =
         eventBus.on<SwitchBottomNavEvent>().listen(onSwitchBottomNavEvent);
   }
 
   onSwitchBottomNavEvent(SwitchBottomNavEvent event) async {
     if (mounted) {
-      _currentIndex.value = event.index;
+      currentIndex.value = event.index;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
-      valueListenable: _currentIndex,
+      valueListenable: currentIndex,
       builder: (_, currentIndex, __) => Scaffold(
-        body: IndexedStack(index: currentIndex, children: [
-          const OwnerHomeScreen(),
-          const FleetManagementScreen(),
-          const DeliveryManagement(),
-          const FleetNotifications(),
-          const FleetOwnerAccount(),
+        body: IndexedStack(index: currentIndex, children: const [
+          OwnerHomeScreen(),
+          FleetManagementScreen(),
+          DeliveryManagement(),
+          FleetNotifications(),
+          FleetOwnerAccount(),
         ]),
         bottomNavigationBar: bottomNavigation(),
       ),
@@ -86,7 +90,7 @@ class _FleetOwnerHomePageState extends State<FleetOwnerHomePage> {
         onTap: (index) {
           _onItemTapped(index);
         },
-        currentIndex: _currentIndex.value,
+        currentIndex: currentIndex.value,
         items: [
           const BottomNavigationBarItem(
             icon: Padding(

@@ -23,7 +23,7 @@ class _DeliveryConfirmedBottomSheetState
         width: ScreenUtil().screenWidth,
         child: ListView(
           padding: EdgeInsets.fromLTRB(16, 26.h, 15, 32.h),
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: [
             deliveryDetail("Pickup Address",
                 "Off Ibeshe Rd., After Nichemtex, Box 217 Ikorodu, Lag."),
@@ -67,7 +67,7 @@ class _DeliveryConfirmedBottomSheetState
             value,
             style: regular2,
           ),
-          Divider(
+          const Divider(
             color: CustomColors.grey100,
           )
         ],
