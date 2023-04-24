@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:vamuz_riders/constants/colors.dart';
@@ -10,6 +11,7 @@ import 'package:vamuz_riders/ui/utils/custom_textfield.dart';
 import 'package:vamuz_riders/constants/styles.dart';
 import 'package:vamuz_riders/constants/images.dart';
 import 'package:vamuz_riders/constants/spacing.dart';
+import 'package:vamuz_riders/ui/fleet_owner/options.dart';
 
 class SignIn extends StatefulWidget {
   final bool isRider;
@@ -70,7 +72,8 @@ class _SignInState extends State<SignIn> {
               CustomButton(
                   text: "Sign In",
                   onTap: () {
-                    Get.offAll(() => HomePage());
+                    Get.toNamed(RouteConstant.OPTIONS);
+                    // Get.offAll(() => HomePage());
                   }),
               Ui.boxHeight(33),
               InkWell(

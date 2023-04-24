@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
@@ -33,10 +32,18 @@ class _OtpPageState extends State<OtpPage> {
                 style: heading4,
               ),
               Ui.boxHeight(17),
-              const Text(
-                "Please enter the OTP code sent to your phone number",
-                style: overline,
-              ),
+              RichText(
+                  text: TextSpan(
+                      text:
+                          'Please enter the OTP code sent to your phone number. ',
+                      style:
+                          overline.copyWith(color: Colors.black, fontSize: 11),
+                      children: [
+                    TextSpan(
+                        text: 'Request OTP',
+                        style: overline.copyWith(
+                            color: const Color(0xFFED1C24), fontSize: 11))
+                  ])),
               Ui.boxHeight(37),
               Center(
                 child: Padding(

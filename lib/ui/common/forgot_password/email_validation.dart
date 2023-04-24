@@ -53,7 +53,7 @@ class _EmailValidationState extends State<EmailValidation> {
                         text: "Proceed",
                         onTap: () {
                           Get.toNamed(RouteConstant.OTP_VALIDATION);
-                        }),
+                        }), 
                   ],
                 ),
               )

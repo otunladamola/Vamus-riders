@@ -33,7 +33,7 @@ class _NewPasswordState extends State<NewPassword> {
                   style: overline.copyWith(height: 1.3),
                 ),
                 Ui.boxHeight(32),
-                const CustomPasswordTextField(label: "New Password"),
+                const CustomPasswordTextField(label: "Enter New Password"),
                 Ui.boxHeight(30),
                 const CustomPasswordTextField(label: "Confirm Password"),
                 Ui.boxHeight(58),

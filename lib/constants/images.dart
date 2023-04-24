@@ -15,3 +15,6 @@ const String marketplace = 'assets/images/marketplace.png';
 const String addPayment = 'assets/images/add_payment.png';
 const String withdraw = 'assets/images/withdraw.png';
 const String editAccount = 'assets/images/edit_account.png';
+const String driverProfile = 'assets/images/driver_profile.png';
+const String fleet = 'assets/images/fleet.png';
+const String report = 'assets/images/report.png';

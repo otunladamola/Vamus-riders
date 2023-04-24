@@ -4,6 +4,8 @@ import 'package:vamuz_riders/ui/common/forgot_password/new_password.dart';
 import 'package:vamuz_riders/ui/common/forgot_password/otp_validation.dart';
 import 'package:vamuz_riders/ui/common/otp_page.dart';
 import 'package:vamuz_riders/ui/common/sign_in.dart';
+import 'package:vamuz_riders/ui/fleet_owner/home/bottom_nav_screens/account/report_generation.dart';
+import 'package:vamuz_riders/ui/fleet_owner/options.dart';
 import 'package:vamuz_riders/ui/rider/authentication/driver_form.dart';
 import 'package:vamuz_riders/ui/rider/authentication/rider_form.dart';
 import 'package:vamuz_riders/ui/rider/authentication/sign_up_screen.dart';
@@ -108,6 +110,16 @@ class AppPages {
         GetPage(
           name: RouteConstant.ADD_PAYMENT,
           page: () => const AddPayment(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.OPTIONS,
+          page: () => const SellerHomeOptions(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteConstant.REPORT_GENERATION,
+          page: () => const ReportGeneration(),
           transition: Transition.rightToLeft,
         ),
       ],

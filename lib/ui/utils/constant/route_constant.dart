@@ -18,4 +18,6 @@ class RouteConstant {
   static const String WITHDRAW = '/withdraw';
   static const String DELIVERY_SUMMARY = '/delivery_summary';
   static const String ADD_PAYMENT = '/add_payment';
+  static const String OPTIONS = '/options';
+  static const String REPORT_GENERATION = '/report_generation';
 }
